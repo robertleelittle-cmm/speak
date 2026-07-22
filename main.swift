@@ -176,7 +176,7 @@ let text: String
 if !textParts.isEmpty {
     text = textParts.joined(separator: " ")
 } else if isatty(STDIN_FILENO) == 0 {
-    text = (try? String(data: FileHandle.standardInput.readDataToEndOfFile(), encoding: .utf8) ?? "") ?? ""
+    text = String(data: FileHandle.standardInput.readDataToEndOfFile(), encoding: .utf8) ?? ""
 } else {
     usage(); exit(1)
 }
